@@ -1,0 +1,5 @@
+export { Heading, H1, H2, H3, H4, H5, H6 } from './Heading'
+export { Paragraph } from './Paragraph'
+export { List, UnorderedList, OrderedList, ListItem } from './List'
+export { Blockquote } from './Blockquote'
+export { InlineCode, CodeBlock } from './Code' 

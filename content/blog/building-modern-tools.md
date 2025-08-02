@@ -6,8 +6,6 @@ tags: ["Tools", "Productivity", "Developer Experience", "CLI"]
 featured: true
 ---
 
-# Building Modern Development Tools
-
 In today's fast-paced development environment, having the right tools can make the difference between a productive day and a frustrating one. Over the past few years, I've been focused on building developer tools that solve real problems and improve the overall development experience.
 
 ## Why Developer Tools Matter

@@ -4,6 +4,8 @@ import { format } from 'date-fns'
 import { Calendar, Tag, ArrowLeft } from 'lucide-react'
 import Link from 'next/link'
 import { getBlogPost, getAllPostIds } from '@/lib/blog'
+import ReactMarkdown from 'react-markdown'
+import { Heading, Paragraph, UnorderedList, OrderedList, ListItem, Blockquote, InlineCode, CodeBlock } from '@/components/markdown'
 
 interface BlogPostPageProps {
   params: {
@@ -19,7 +21,8 @@ export async function generateStaticParams() {
 }
 
 export async function generateMetadata({ params }: BlogPostPageProps): Promise<Metadata> {
-  const post = await getBlogPost(params.id)
+  const { id } = await params
+  const post = await getBlogPost(id)
   
   if (!post) {
     return {
@@ -35,7 +38,8 @@ export async function generateMetadata({ params }: BlogPostPageProps): Promise<M
 }
 
 export default async function BlogPostPage({ params }: BlogPostPageProps) {
-  const post = await getBlogPost(params.id)
+  const { id } = await params
+  const post = await getBlogPost(id)
 
   if (!post) {
     notFound()
@@ -87,8 +91,32 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
           <article className="prose prose-lg max-w-none prose-p:text-gray-900 prose-li:text-gray-900 prose-blockquote:text-gray-900">
             <div
               className="text-gray-900 [&>p]:text-gray-900 [&>ul]:text-gray-900 [&>ol]:text-gray-900 [&>li]:text-gray-900 [&>blockquote]:text-gray-900"
-              dangerouslySetInnerHTML={{ __html: post.content }}
-            />
+            >
+              <ReactMarkdown
+                components={{
+                  h1: ({ children }) => <Heading level={1}>{children}</Heading>,
+                  h2: ({ children }) => <Heading level={2}>{children}</Heading>,
+                  h3: ({ children }) => <Heading level={3}>{children}</Heading>,
+                  h4: ({ children }) => <Heading level={4}>{children}</Heading>,
+                  h5: ({ children }) => <Heading level={5}>{children}</Heading>,
+                  h6: ({ children }) => <Heading level={6}>{children}</Heading>,
+                  p: ({ children }) => <Paragraph>{children}</Paragraph>,
+                  ul: ({ children }) => <UnorderedList>{children}</UnorderedList>,
+                  ol: ({ children }) => <OrderedList>{children}</OrderedList>,
+                  li: ({ children }) => <ListItem>{children}</ListItem>,
+                  blockquote: ({ children }) => <Blockquote>{children}</Blockquote>,
+                  code: ({ children, className }) => {
+                    const language = className?.replace('language-', '')
+                    if (language) {
+                      return <CodeBlock language={language}>{children}</CodeBlock>
+                    }
+                    return <InlineCode>{children}</InlineCode>
+                  },
+                }}
+              >
+                {post.content}
+              </ReactMarkdown>
+            </div>
           </article>
         </div>
       </section>

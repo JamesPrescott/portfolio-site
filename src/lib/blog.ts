@@ -1,8 +1,6 @@
 import fs from 'fs'
 import path from 'path'
 import matter from 'gray-matter'
-import { remark } from 'remark'
-import html from 'remark-html'
 
 const postsDirectory = path.join(process.cwd(), 'content/blog')
 
@@ -58,12 +56,6 @@ export async function getBlogPost(id: string): Promise<BlogPost | null> {
     const fileContents = fs.readFileSync(fullPath, 'utf8')
     const matterResult = matter(fileContents)
 
-    // Use remark to convert markdown into HTML string
-    const processedContent = await remark()
-      .use(html)
-      .process(matterResult.content)
-    const contentHtml = processedContent.toString()
-
     return {
       id,
       title: matterResult.data.title || 'Untitled',
@@ -71,7 +63,7 @@ export async function getBlogPost(id: string): Promise<BlogPost | null> {
       excerpt: matterResult.data.excerpt || '',
       tags: matterResult.data.tags || [],
       featured: matterResult.data.featured || false,
-      content: contentHtml,
+      content: matterResult.content,
     }
   } catch (error) {
     return null
