@@ -26,6 +26,7 @@ test.describe('Blog', () => {
   });
 
   test('should be able to search for a post', async ({ page }) => {
+    await page.waitForURL('/blog')
     await page.getByRole('textbox', { name: 'Search' }).fill('Tools')
     await expect(main.getByRole('article')).toHaveCount(1)
   });
