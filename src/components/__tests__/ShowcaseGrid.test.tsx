@@ -63,7 +63,7 @@ describe('ShowcaseGrid', () => {
     
     // Featured item should have a star
     const featuredItem = screen.getByText('React Component Library').closest('div')?.parentElement?.parentElement
-    expect(featuredItem).toHaveClass('ring-2', 'ring-blue-500')
+    expect(featuredItem).toHaveClass('ring-2', 'ring-red-800')
   })
 
   it('renders demo and code links', () => {

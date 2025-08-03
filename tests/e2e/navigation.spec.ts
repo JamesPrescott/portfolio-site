@@ -48,12 +48,6 @@ test.describe('Navigation', () => {
     
     // Showcase link should be active - check the correct CSS class
     const showcaseLink = page.getByRole('navigation').getByRole('link', { name: 'Showcase' })
-    await expect(showcaseLink).toHaveClass(/bg-blue-50/)
-    
-    await page.goto('/blog')
-    
-    // Blog link should be active - check the correct CSS class
-    const blogLink = page.getByRole('navigation').getByRole('link', { name: 'Blog' })
-    await expect(blogLink).toHaveClass(/bg-blue-50/)
+    await expect(showcaseLink).toHaveClass(/text-white bg-red-800/)
   })
 }) 

@@ -39,10 +39,10 @@ const Navigation = () => {
               <Link
                 key={item.href}
                 href={item.href}
-                className={`px-3 py-2 rounded-md text-sm font-medium transition-colors ${
+                className={`px-3 py-2 rounded-md text-sm font-medium transition-colors border-2 border-transparent ${
                   isActive(item.href)
-                    ? 'text-red-600 bg-red-50'
-                    : 'text-gray-700 hover:text-red-600 hover:bg-gray-50'
+                    ? 'text-white bg-red-800'
+                    : 'text-gray-700 hover:border-red-800 hover:border-2'
                 }`}
               >
                 {item.label}
@@ -71,8 +71,8 @@ const Navigation = () => {
                   href={item.href}
                   className={`block px-3 py-2 rounded-md text-base font-medium transition-colors ${
                     isActive(item.href)
-                      ? 'text-red-600 bg-red-50'
-                      : 'text-gray-700 hover:text-red-600 hover:bg-gray-50'
+                      ? 'text-red-600 bg-red-800'
+                      : 'text-gray-700 hover:text-red-600 hover:bg-red-800'
                   }`}
                   onClick={() => setIsMenuOpen(false)}
                 >
