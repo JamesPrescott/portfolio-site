@@ -8,9 +8,9 @@ import ReactMarkdown from 'react-markdown'
 import { Heading, Paragraph, UnorderedList, OrderedList, ListItem, Blockquote, InlineCode, CodeBlock } from '@/components/markdown'
 
 interface BlogPostPageProps {
-  params: {
+  params: Promise<{
     id: string
-  }
+  }>
 }
 
 export async function generateStaticParams() {
