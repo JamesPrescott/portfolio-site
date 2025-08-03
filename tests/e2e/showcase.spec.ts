@@ -25,6 +25,7 @@ test.describe('Showcase', () => {
   })
 
   test('should be able to search with search bar', async ({ page }) => {
+    await page.waitForURL('/showcase')
     await page.getByRole('textbox', { name: /Search/ }).fill('CLI')
 
     const grid = page.locator('main div.grid');
@@ -34,6 +35,7 @@ test.describe('Showcase', () => {
   })
 
   test('should be able to see a fallback message when no projects are found', async ({ page }) => {
+    await page.waitForURL('/showcase')
     await page.getByRole('textbox', { name: /Search/ }).fill('Not a real project')
 
     const grid = page.locator('main div.grid');
