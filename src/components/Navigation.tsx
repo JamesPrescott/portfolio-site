@@ -41,8 +41,8 @@ const Navigation = () => {
                 href={item.href}
                 className={`px-3 py-2 rounded-md text-sm font-medium transition-colors ${
                   isActive(item.href)
-                    ? 'text-blue-600 bg-blue-50'
-                    : 'text-gray-700 hover:text-blue-600 hover:bg-gray-50'
+                    ? 'text-red-600 bg-red-50'
+                    : 'text-gray-700 hover:text-red-600 hover:bg-gray-50'
                 }`}
               >
                 {item.label}
@@ -71,8 +71,8 @@ const Navigation = () => {
                   href={item.href}
                   className={`block px-3 py-2 rounded-md text-base font-medium transition-colors ${
                     isActive(item.href)
-                      ? 'text-blue-600 bg-blue-50'
-                      : 'text-gray-700 hover:text-blue-600 hover:bg-gray-50'
+                      ? 'text-red-600 bg-red-50'
+                      : 'text-gray-700 hover:text-red-600 hover:bg-gray-50'
                   }`}
                   onClick={() => setIsMenuOpen(false)}
                 >

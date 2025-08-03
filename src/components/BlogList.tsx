@@ -5,6 +5,7 @@ import Link from 'next/link'
 import { format } from 'date-fns'
 import { Calendar, Tag, Star } from 'lucide-react'
 import type { BlogPost } from '@/lib/blog'
+import { SearchInput } from './SearchInput'
 
 interface BlogListProps {
   posts: BlogPost[]
@@ -37,7 +38,7 @@ const BlogList = ({ posts }: BlogListProps) => {
               onClick={() => setSelectedTag('all')}
               className={`px-4 py-2 rounded-lg font-medium transition-colors ${
                 selectedTag === 'all'
-                  ? 'bg-blue-600 text-white'
+                  ? 'bg-red-800 text-white'
                   : 'bg-gray-200 text-gray-700 hover:bg-gray-300'
               }`}
             >
@@ -49,7 +50,7 @@ const BlogList = ({ posts }: BlogListProps) => {
                 onClick={() => setSelectedTag(tag)}
                 className={`px-4 py-2 rounded-lg font-medium transition-colors ${
                   selectedTag === tag
-                    ? 'bg-blue-600 text-white'
+                    ? 'bg-red-800 text-white'
                     : 'bg-gray-200 text-gray-700 hover:bg-gray-300'
                 }`}
               >
@@ -57,12 +58,10 @@ const BlogList = ({ posts }: BlogListProps) => {
               </button>
             ))}
           </div>
-          <input
-            type="text"
-            placeholder="Search articles..."
+          <SearchInput
             value={searchTerm}
-            onChange={(e) => setSearchTerm(e.target.value)}
-            className="px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent placeholder-gray-600"
+            onChange={setSearchTerm}
+            placeholder="Search articles..."
           />
         </div>
       </div>
@@ -73,13 +72,13 @@ const BlogList = ({ posts }: BlogListProps) => {
           <article
             key={post.id}
             className={`bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg transition-shadow ${
-              post.featured ? 'ring-2 ring-blue-500' : ''
+              post.featured ? 'ring-2 ring-red-800' : ''
             }`}
           >
             <div className="p-6">
               <div className="flex items-start justify-between mb-2">
                 <h3 className="text-xl font-semibold text-gray-900 line-clamp-2">
-                  <Link href={`/blog/${post.id}`} className="hover:text-blue-600 transition-colors">
+                  <Link href={`/blog/${post.id}`} className="hover:text-red-800 transition-colors">
                     {post.title}
                   </Link>
                 </h3>
@@ -100,7 +99,7 @@ const BlogList = ({ posts }: BlogListProps) => {
                 {post.tags.map((tag) => (
                   <span
                     key={tag}
-                    className="px-2 py-1 bg-gray-100 text-gray-700 text-xs rounded-full flex items-center"
+                    className="px-2 py-1 bg-red-100 text-red-700 text-xs rounded-full flex items-center"
                   >
                     <Tag size={12} className="mr-1" />
                     {tag}
@@ -110,7 +109,7 @@ const BlogList = ({ posts }: BlogListProps) => {
 
               <Link
                 href={`/blog/${post.id}`}
-                className="inline-flex items-center text-blue-600 hover:text-blue-700 font-medium transition-colors"
+                className="inline-flex items-center text-red-800 hover:text-red-700 font-medium transition-colors"
               >
                 Read more →
               </Link>

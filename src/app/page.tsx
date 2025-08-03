@@ -5,27 +5,27 @@ export default function Home() {
   return (
     <div className="min-h-screen">
       {/* Hero Section */}
-      <section className="bg-gradient-to-br from-blue-50 to-indigo-100 py-20">
+      <section className="bg-gradient-to-br from-red-800 to-red-900 py-20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center">
-            <h1 className="text-4xl md:text-6xl font-bold text-gray-900 mb-6">
+            <h1 className="text-4xl md:text-6xl font-bold text-white mb-6">
               Hi, I'm James
             </h1>
-            <p className="text-xl md:text-2xl text-gray-600 mb-8 max-w-3xl mx-auto">
+            <p className="text-xl md:text-2xl text-gray-300 mb-8 max-w-3xl mx-auto">
               I build tools, frameworks, and write about software development. 
               Welcome to my portfolio where I showcase my work and share insights.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Link
                 href="/showcase"
-                className="inline-flex items-center px-6 py-3 bg-blue-600 text-white font-semibold rounded-lg hover:bg-blue-700 transition-colors"
+                className="inline-flex items-center px-6 py-3 bg-white text-red-800 font-semibold rounded-lg hover:bg-red-100 transition-colors"
               >
                 View My Work
                 <ArrowRight className="ml-2" size={20} />
               </Link>
               <Link
                 href="/blog"
-                className="inline-flex items-center px-6 py-3 border border-gray-300 text-gray-700 font-semibold rounded-lg hover:bg-gray-50 transition-colors"
+                className="inline-flex items-center px-6 py-3 border border-gray-300 text-white font-semibold rounded-lg hover:bg-gray-50 hover:text-red-800 transition-colors"
               >
                 Read My Blog
                 <BookOpen className="ml-2" size={20} />
@@ -36,13 +36,13 @@ export default function Home() {
       </section>
 
       {/* Features Section */}
-      <section className="py-20">
+      <section className="py-20 bg-gray-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
             <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
               What I Do
             </h2>
-            <p className="text-xl text-gray-600 max-w-2xl mx-auto">
+            <p className="text-xl text-gray-900 max-w-2xl mx-auto">
               I focus on creating practical tools and frameworks that solve real problems, 
               and share my knowledge through writing and open source contributions.
             </p>
@@ -50,31 +50,31 @@ export default function Home() {
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             <div className="text-center p-6">
-              <div className="bg-blue-100 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
-                <ToolCase className="text-blue-600" size={32} />
+              <div className="bg-red-100 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
+                <ToolCase className="text-red-600" size={32} />
               </div>
               <h3 className="text-xl font-semibold text-gray-900 mb-2">Build Tools</h3>
-              <p className="text-gray-600">
+              <p className="text-gray-900">
                 Creating developer tools and utilities that improve productivity and developer experience.
               </p>
             </div>
 
             <div className="text-center p-6">
-              <div className="bg-green-100 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
-                <Code className="text-green-600" size={32} />
+              <div className="bg-red-100 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
+                <Code className="text-red-600" size={32} />
               </div>
               <h3 className="text-xl font-semibold text-gray-900 mb-2">Frameworks</h3>
-              <p className="text-gray-600">
+              <p className="text-gray-900">
                 Developing frameworks and libraries that simplify complex tasks and accelerate development.
               </p>
             </div>
 
             <div className="text-center p-6">
-              <div className="bg-purple-100 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
-                <BookOpen className="text-purple-600" size={32} />
+              <div className="bg-red-100 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
+                <BookOpen className="text-red-600" size={32} />
               </div>
               <h3 className="text-xl font-semibold text-gray-900 mb-2">Share Knowledge</h3>
-              <p className="text-gray-600">
+              <p className="text-gray-900">
                 Writing articles and tutorials to help others learn and grow in their development journey.
               </p>
             </div>
@@ -83,7 +83,7 @@ export default function Home() {
       </section>
 
       {/* CTA Section */}
-      <section className="bg-gray-900 text-white py-20">
+      <section className="bg-red-800 text-white py-20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <h2 className="text-3xl md:text-4xl font-bold mb-4">
             Ready to explore?
@@ -94,14 +94,14 @@ export default function Home() {
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Link
               href="/showcase"
-              className="inline-flex items-center px-6 py-3 bg-blue-600 text-white font-semibold rounded-lg hover:bg-blue-700 transition-colors"
+              className="inline-flex items-center px-6 py-3 bg-white text-red-800 font-semibold rounded-lg hover:bg-red-100 transition-colors"
             >
               Explore Showcase
               <ArrowRight className="ml-2" size={20} />
             </Link>
             <Link
               href="/about"
-              className="inline-flex items-center px-6 py-3 border border-gray-600 text-white font-semibold rounded-lg hover:bg-gray-800 transition-colors"
+              className="inline-flex items-center px-6 py-3 border border-white text-white font-semibold rounded-lg hover:bg-white hover:text-red-800 transition-colors"
             >
               Learn More About Me
             </Link>

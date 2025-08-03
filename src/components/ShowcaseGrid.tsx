@@ -2,6 +2,7 @@
 
 import { useState } from 'react'
 import { ExternalLink, Github, Star } from 'lucide-react'
+import { SearchInput } from './SearchInput'
 
 export interface ShowcaseItem {
   id: number
@@ -49,7 +50,7 @@ const ShowcaseGrid = ({ items }: ShowcaseGridProps) => {
                 onClick={() => setFilter(category.value as 'all' | 'tool' | 'framework')}
                 className={`px-4 py-2 rounded-lg font-medium transition-colors ${
                   filter === category.value
-                    ? 'bg-blue-600 text-white'
+                    ? 'bg-red-800 text-white'
                     : 'bg-gray-200 text-gray-700 hover:bg-gray-300'
                 }`}
               >
@@ -57,12 +58,10 @@ const ShowcaseGrid = ({ items }: ShowcaseGridProps) => {
               </button>
             ))}
           </div>
-          <input
-            type="text"
-            placeholder="Search projects..."
+          <SearchInput
             value={searchTerm}
-            onChange={(e) => setSearchTerm(e.target.value)}
-            className="px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+            onChange={setSearchTerm}
+            placeholder="Search projects..."
           />
         </div>
       </div>
@@ -73,7 +72,7 @@ const ShowcaseGrid = ({ items }: ShowcaseGridProps) => {
           <div
             key={item.id}
             className={`bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg transition-shadow ${
-              item.featured ? 'ring-2 ring-blue-500' : ''
+              item.featured ? 'ring-2 ring-red-800' : ''
             }`}
           >
             {/* Image */}
@@ -110,7 +109,7 @@ const ShowcaseGrid = ({ items }: ShowcaseGridProps) => {
                   href={item.demoUrl}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="flex items-center gap-2 px-4 py-2 bg-blue-600 text-white text-sm font-medium rounded-lg hover:bg-blue-700 transition-colors"
+                  className="flex items-center gap-2 px-4 py-2 bg-red-800 text-white text-sm font-medium rounded-lg hover:bg-red-700 transition-colors"
                 >
                   <ExternalLink size={16} />
                   Demo

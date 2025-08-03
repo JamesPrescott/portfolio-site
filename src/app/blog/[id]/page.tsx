@@ -48,23 +48,23 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
   return (
     <div className="min-h-screen bg-gray-50">
       {/* Header */}
-      <section className="bg-white border-b">
+      <section className="bg-red-800 border-b">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
           <Link
             href="/blog"
-            className="inline-flex items-center text-blue-600 hover:text-blue-700 mb-6 transition-colors"
+            className="inline-flex items-center text-white hover:text-red-300 mb-6 transition-colors"
           >
             <ArrowLeft size={20} className="mr-2" />
             Back to Blog
           </Link>
 
           <div className="mb-6">
-            <div className="flex items-center text-sm text-gray-500 mb-4">
+            <div className="flex items-center text-sm text-white mb-4">
               <Calendar size={16} className="mr-1" />
               {format(new Date(post.date), 'MMMM dd, yyyy')}
             </div>
 
-            <h1 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
+            <h1 className="text-4xl md:text-5xl font-bold text-white mb-6">
               {post.title}
             </h1>
 
@@ -73,7 +73,7 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
                 {post.tags.map((tag) => (
                   <span
                     key={tag}
-                    className="px-3 py-1 bg-blue-100 text-blue-800 text-sm rounded-full flex items-center"
+                    className="px-3 py-1 bg-red-300 text-red-800 text-sm rounded-full flex items-center"
                   >
                     <Tag size={14} className="mr-1" />
                     {tag}

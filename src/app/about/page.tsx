@@ -39,13 +39,13 @@ export default function AboutPage() {
   return (
     <div className="min-h-screen bg-gray-50">
       {/* Hero Section */}
-      <section className="bg-white border-b">
+      <section className="bg-red-800 border-b">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
           <div className="text-center">
-            <h1 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
+            <h1 className="text-4xl md:text-5xl font-bold text-white mb-6">
               About Me
             </h1>
-            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+            <p className="text-xl text-white max-w-3xl mx-auto">
               I'm a passionate software developer who loves building tools, frameworks, and sharing knowledge 
               with the community. Here's a bit more about my journey and what drives me.
             </p>
@@ -98,7 +98,7 @@ export default function AboutPage() {
                   {skillGroup.items.map((skill) => (
                     <span
                       key={skill}
-                      className="px-3 py-1 bg-blue-100 text-blue-800 text-sm rounded-full"
+                      className="px-3 py-1 bg-red-100 text-red-800 text-sm rounded-full"
                     >
                       {skill}
                     </span>
@@ -122,9 +122,9 @@ export default function AboutPage() {
 
           <div className="space-y-8">
             {experiences.map((experience, index) => (
-              <div key={index} className="border-l-4 border-blue-500 pl-6">
+              <div key={index} className="border-l-4 border-red-800 pl-6">
                 <h3 className="text-xl font-semibold text-gray-900">{experience.title}</h3>
-                <p className="text-blue-600 font-medium">{experience.company}</p>
+                <p className="text-red-800 font-medium">{experience.company}</p>
                 <p className="text-gray-500 text-sm mb-2">{experience.period}</p>
                 <p className="text-gray-700">{experience.description}</p>
               </div>
@@ -144,7 +144,7 @@ export default function AboutPage() {
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <a
               href="mailto:james@example.com"
-              className="inline-flex items-center px-6 py-3 bg-blue-600 text-white font-semibold rounded-lg hover:bg-blue-700 transition-colors"
+              className="inline-flex items-center px-6 py-3 bg-red-800 text-white font-semibold rounded-lg hover:bg-red-700 transition-colors"
             >
               <Mail size={20} className="mr-2" />
               Send Email
