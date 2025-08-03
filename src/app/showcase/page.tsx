@@ -1,6 +1,7 @@
 import { Metadata } from 'next'
 import ShowcaseGrid from '@/components/ShowcaseGrid'
 import type { ShowcaseItem } from '@/components/ShowcaseGrid'
+import { showcaseContent } from '@/lib/content'
 
 export const metadata: Metadata = {
   title: 'Showcase - James Portfolio',
@@ -85,11 +86,10 @@ export default function ShowcasePage() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
           <div className="text-center">
             <h1 className="text-4xl md:text-5xl font-bold text-white mb-6">
-              Showcase
+              {showcaseContent.hero.title}
             </h1>
             <p className="text-xl text-white max-w-3xl mx-auto">
-              Explore the tools, frameworks, and projects I've built. Each project represents 
-              a solution to real problems I've encountered in software development.
+              {showcaseContent.hero.description}
             </p>
           </div>
         </div>

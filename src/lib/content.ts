@@ -46,3 +46,11 @@ export const homeContent = {
     description: 'Check out my latest projects and articles, or get in touch to discuss collaboration opportunities.',
   }
 }
+
+export const showcaseContent = {
+  hero: {
+    title: 'Showcase',
+    description: `Explore the tools, frameworks, and projects I've built. Each project represents 
+      a solution to real problems I've encountered in software development.`,
+  }
+}
