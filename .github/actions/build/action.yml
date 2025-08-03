@@ -1,16 +1,8 @@
-name: Build
-
-on:
-  push:
-    branches: [ main ]
-  pull_request:
-    branches: [ main ]
-
-jobs:
-  build:
-    runs-on: ubuntu-latest
-
-    steps:
+name: 'Build'
+description: 'Build the application'
+runs:
+  using: 'composite'
+  steps:
     - name: Checkout code
       uses: actions/checkout@v4
       
@@ -21,9 +13,11 @@ jobs:
         cache: 'npm'
 
     - name: Install dependencies
+      shell: bash
       run: npm ci
 
     - name: Build the application
+      shell: bash
       run: npm run build
 
     - name: Upload build artifacts
@@ -31,4 +25,4 @@ jobs:
       with:
         name: build-artifacts
         path: dist/
-        retention-days: 7
+        retention-days: 7 
