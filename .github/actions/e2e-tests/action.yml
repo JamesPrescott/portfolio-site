@@ -17,10 +17,6 @@ runs:
       shell: bash
       run: npx playwright install --with-deps
       
-    - name: Build the application
-      shell: bash
-      run: npm run dev &
-      
     - name: Run E2E tests
       shell: bash
       run: npm run test:e2e
