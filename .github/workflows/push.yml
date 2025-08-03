@@ -28,5 +28,12 @@ jobs:
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
+      - name: Download build
+        uses: actions/download-artifact@v4
+        with:
+          name: nextjs-build
+          path: |
+            .next/
+            public/
       - name: E2E Tests
         uses: ./.github/actions/e2e-tests
