@@ -134,17 +134,17 @@ export default function AboutPage() {
       </section>
 
       {/* Contact Section */}
-      <section className="py-16">
+      <section className="py-16 bg-red-800">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <h2 className="text-3xl font-bold text-gray-900 mb-6">Get In Touch</h2>
-          <p className="text-xl text-gray-600 mb-8">
+          <h2 className="text-3xl font-bold text-white mb-6">Get In Touch</h2>
+          <p className="text-xl text-white mb-8">
             I'm always interested in new opportunities, collaborations, or just a good conversation about tech.
           </p>
           
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <a
               href="mailto:james@example.com"
-              className="inline-flex items-center px-6 py-3 bg-red-800 text-white font-semibold rounded-lg hover:bg-red-700 transition-colors"
+              className="inline-flex items-center px-6 py-3 bg-white text-red-800 font-semibold rounded-lg hover:bg-red-100 transition-colors"
             >
               <Mail size={20} className="mr-2" />
               Send Email
@@ -153,7 +153,7 @@ export default function AboutPage() {
               href="https://github.com"
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center px-6 py-3 border border-gray-300 text-gray-700 font-semibold rounded-lg hover:bg-gray-50 transition-colors"
+              className="inline-flex items-center px-6 py-3 border border-white text-white font-semibold rounded-lg hover:bg-white hover:text-red-800 transition-colors"
             >
               <Github size={20} className="mr-2" />
               GitHub
@@ -162,7 +162,7 @@ export default function AboutPage() {
               href="https://linkedin.com"
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center px-6 py-3 border border-gray-300 text-gray-700 font-semibold rounded-lg hover:bg-gray-50 transition-colors"
+              className="inline-flex items-center px-6 py-3 border border-white text-white font-semibold rounded-lg hover:bg-white hover:text-red-800 transition-colors"
             >
               <Linkedin size={20} className="mr-2" />
               LinkedIn
