@@ -15,4 +15,34 @@ export const aboutContent = {
     title: 'Get In Touch',
     description: `I'm always interested in new opportunities, collaborations, or just a good conversation about tech.`
   }
-} 
+}
+
+export const homeContent = {
+  hero: {
+    title: `Hi, I'm James`,
+    description: `I build tools, frameworks, and write about software development. Welcome to my portfolio where I showcase my work and share insights.`,
+  },
+  features: {
+    title: 'What I Do',
+    description: `I focus on creating practical tools and frameworks that solve real problems, 
+      and share my knowledge through writing and open source contributions.`,
+    features: [
+      {
+        title: 'Build Tools',
+        description: 'Creating developer tools and utilities that improve productivity and developer experience.',
+      },
+      {
+        title: 'Write About Software Development',
+        description: 'Sharing my knowledge through writing and open source contributions.',
+      },
+      {
+        title: 'Open Source Contributions',
+        description: 'Contributing to open source projects to help the community.',
+      }
+    ]
+  },
+  cta: {
+    title: 'Ready to explore?',
+    description: 'Check out my latest projects and articles, or get in touch to discuss collaboration opportunities.',
+  }
+}

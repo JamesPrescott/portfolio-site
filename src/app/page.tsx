@@ -1,5 +1,6 @@
 import Link from 'next/link'
 import { ArrowRight, Code, BookOpen, ToolCase } from 'lucide-react'
+import { homeContent } from '@/lib/content'
 
 export default function Home() {
   return (
@@ -9,11 +10,10 @@ export default function Home() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center">
             <h1 className="text-4xl md:text-6xl font-bold text-white mb-6">
-              Hi, I'm James
+              {homeContent.hero.title}
             </h1>
             <p className="text-xl md:text-2xl text-gray-300 mb-8 max-w-3xl mx-auto">
-              I build tools, frameworks, and write about software development. 
-              Welcome to my portfolio where I showcase my work and share insights.
+              {homeContent.hero.description}
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Link
@@ -40,11 +40,10 @@ export default function Home() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
             <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
-              What I Do
+              {homeContent.features.title}
             </h2>
             <p className="text-xl text-gray-900 max-w-2xl mx-auto">
-              I focus on creating practical tools and frameworks that solve real problems, 
-              and share my knowledge through writing and open source contributions.
+              {homeContent.features.description}
             </p>
           </div>
 
@@ -53,9 +52,9 @@ export default function Home() {
               <div className="bg-red-100 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
                 <ToolCase className="text-red-600" size={32} />
               </div>
-              <h3 className="text-xl font-semibold text-gray-900 mb-2">Build Tools</h3>
+              <h3 className="text-xl font-semibold text-gray-900 mb-2">{homeContent.features.features[0].title}</h3>
               <p className="text-gray-900">
-                Creating developer tools and utilities that improve productivity and developer experience.
+                {homeContent.features.features[0].description}
               </p>
             </div>
 
@@ -63,9 +62,9 @@ export default function Home() {
               <div className="bg-red-100 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
                 <Code className="text-red-600" size={32} />
               </div>
-              <h3 className="text-xl font-semibold text-gray-900 mb-2">Frameworks</h3>
+              <h3 className="text-xl font-semibold text-gray-900 mb-2">{homeContent.features.features[1].title}</h3>
               <p className="text-gray-900">
-                Developing frameworks and libraries that simplify complex tasks and accelerate development.
+                {homeContent.features.features[1].description}
               </p>
             </div>
 
@@ -73,9 +72,9 @@ export default function Home() {
               <div className="bg-red-100 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
                 <BookOpen className="text-red-600" size={32} />
               </div>
-              <h3 className="text-xl font-semibold text-gray-900 mb-2">Share Knowledge</h3>
+              <h3 className="text-xl font-semibold text-gray-900 mb-2">{homeContent.features.features[2].title}</h3>
               <p className="text-gray-900">
-                Writing articles and tutorials to help others learn and grow in their development journey.
+                {homeContent.features.features[2].description}
               </p>
             </div>
           </div>
@@ -86,10 +85,10 @@ export default function Home() {
       <section className="bg-red-800 text-white py-20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <h2 className="text-3xl md:text-4xl font-bold mb-4">
-            Ready to explore?
+            {homeContent.cta.title}
           </h2>
           <p className="text-xl text-gray-300 mb-8 max-w-2xl mx-auto">
-            Check out my latest projects and articles, or get in touch to discuss collaboration opportunities.
+            {homeContent.cta.description}
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Link
