@@ -1,5 +1,6 @@
 import { Metadata } from 'next'
 import { Mail, Github, Linkedin } from 'lucide-react'
+import { aboutContent } from '@/lib/content'
 
 export const metadata: Metadata = {
   title: 'About - James Portfolio',
@@ -43,11 +44,10 @@ export default function AboutPage() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
           <div className="text-center">
             <h1 className="text-4xl md:text-5xl font-bold text-white mb-6">
-              About Me
+              {aboutContent.hero.title}
             </h1>
             <p className="text-xl text-white max-w-3xl mx-auto">
-              I'm a passionate software developer who loves building tools, frameworks, and sharing knowledge 
-              with the community. Here's a bit more about my journey and what drives me.
+              {aboutContent.hero.description}
             </p>
           </div>
         </div>
@@ -57,24 +57,13 @@ export default function AboutPage() {
       <section className="py-16">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="bg-white rounded-lg shadow-md p-8">
-            <h2 className="text-3xl font-bold text-gray-900 mb-6">My Story</h2>
+            <h2 className="text-3xl font-bold text-gray-900 mb-6">{aboutContent.bio.title}</h2>
             <div className="prose prose-lg max-w-none">
-              <p className="text-gray-700 mb-6">
-                I've been passionate about software development for over 8 years, starting with simple 
-                HTML and CSS websites and evolving into building complex applications and developer tools. 
-                My journey has taught me the importance of clean code, user experience, and continuous learning.
-              </p>
-              <p className="text-gray-700 mb-6">
-                I believe in the power of open source and community-driven development. Most of my projects 
-                are available on GitHub, and I actively contribute to various open source projects. When I'm 
-                not coding, you'll find me writing technical articles, speaking at conferences, or mentoring 
-                other developers.
-              </p>
-              <p className="text-gray-700">
-                My approach to development focuses on creating solutions that are not only functional but also 
-                maintainable, scalable, and user-friendly. I'm always exploring new technologies and methodologies 
-                to stay current with industry best practices.
-              </p>
+              {aboutContent.bio.paragraphs.map((paragraph, index) => (
+                <p key={index} className={`text-gray-700 ${index < aboutContent.bio.paragraphs.length - 1 ? 'mb-6' : ''}`}>
+                  {paragraph}
+                </p>
+              ))}
             </div>
           </div>
         </div>
@@ -136,9 +125,9 @@ export default function AboutPage() {
       {/* Contact Section */}
       <section className="py-16 bg-red-800">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <h2 className="text-3xl font-bold text-white mb-6">Get In Touch</h2>
+          <h2 className="text-3xl font-bold text-white mb-6">{aboutContent.contact.title}</h2>
           <p className="text-xl text-white mb-8">
-            I'm always interested in new opportunities, collaborations, or just a good conversation about tech.
+            {aboutContent.contact.description}
           </p>
           
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
