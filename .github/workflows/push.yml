@@ -8,6 +8,8 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
       - name: Build
         uses: ./.github/actions/build
 
@@ -15,6 +17,8 @@ jobs:
     needs: build
     runs-on: ubuntu-latest
     steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
       - name: Unit Tests
         uses: ./.github/actions/unit-tests
 
@@ -22,5 +26,7 @@ jobs:
     needs: build
     runs-on: ubuntu-latest
     steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
       - name: E2E Tests
         uses: ./.github/actions/e2e-tests
