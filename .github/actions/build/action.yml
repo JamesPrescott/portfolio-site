@@ -21,5 +21,5 @@ runs:
       uses: actions/upload-artifact@v4
       with:
         name: build-artifacts
-        path: dist/
+        path: .next
         retention-days: 7 

@@ -19,7 +19,7 @@ runs:
       
     - name: Build the application
       shell: bash
-      run: npm run dev
+      run: npm run dev &
       
     - name: Run E2E tests
       shell: bash
