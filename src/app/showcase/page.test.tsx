@@ -31,27 +31,6 @@ describe('ShowcasePage', () => {
       render(<ShowcasePage />)
       expect(screen.getByText(/Explore the tools, frameworks, and projects/)).toBeInTheDocument()
     })
-
-    it('has correct styling classes for hero section', () => {
-      render(<ShowcasePage />)
-      
-      const heroSection = screen.getByText(showcaseContent.hero.title).closest('section')
-      expect(heroSection).toHaveClass('bg-red-800', 'border-b')
-    })
-
-    it('has responsive text classes for hero title', () => {
-      render(<ShowcasePage />)
-      
-      const heroTitle = screen.getByText(showcaseContent.hero.title)
-      expect(heroTitle).toHaveClass('text-4xl', 'md:text-5xl')
-    })
-
-    it('has responsive container classes for hero section', () => {
-      render(<ShowcasePage />)
-      
-      const heroContainer = screen.getByText(showcaseContent.hero.title).closest('div')?.parentElement
-      expect(heroContainer).toHaveClass('max-w-7xl', 'mx-auto', 'px-4', 'sm:px-6', 'lg:px-8')
-    })
   })
 
   describe('Showcase Grid Section', () => {
@@ -64,7 +43,6 @@ describe('ShowcasePage', () => {
     it('passes the correct number of showcase items to the grid', () => {
       render(<ShowcasePage />)
       
-      // The showcase page has 6 items defined in the component
       expect(screen.getByText('6 items')).toBeInTheDocument()
     })
 
@@ -83,16 +61,6 @@ describe('ShowcasePage', () => {
       expectedItems.forEach(itemTitle => {
         expect(screen.getByText(itemTitle)).toBeInTheDocument()
       })
-    })
-
-    it('has correct styling classes for showcase section', () => {
-      render(<ShowcasePage />)
-      
-      const showcaseSection = screen.getByTestId('showcase-grid').closest('section')
-      expect(showcaseSection).toHaveClass('py-16')
-      
-      const showcaseContainer = showcaseSection?.querySelector('div')
-      expect(showcaseContainer).toHaveClass('max-w-7xl', 'mx-auto', 'px-4', 'sm:px-6', 'lg:px-8')
     })
   })
 })

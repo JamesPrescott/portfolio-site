@@ -1,8 +1,8 @@
-name: Push to Main
+name: Pull Request
 
 on:
-  push:
-    branches: [ main ]
+  pull_request:
+    branches: [ '**' ]
 
 jobs:
   build:
@@ -28,10 +28,5 @@ jobs:
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
-      - name: Download build
-        uses: actions/download-artifact@v4
-        with:
-          name: nextjs-build
-          path: .
       - name: E2E Tests
         uses: ./.github/actions/e2e-tests

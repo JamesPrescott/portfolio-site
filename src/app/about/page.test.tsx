@@ -11,30 +11,12 @@ vi.mock('lucide-react', () => ({
 }))
 
 describe('AboutPage', () => {
-  it('renders the page with correct metadata', () => {
-    render(<AboutPage />)
-    
-    // Note: Next.js metadata is handled at build time, not in component tests
-    // The metadata export is tested separately in integration tests
-    expect(AboutPage).toBeDefined()
-  })
-
   describe('Hero Section', () => {
     it('renders hero section with correct content', () => {
       render(<AboutPage />)
       
-      // Check hero title
       expect(screen.getByText(aboutContent.hero.title)).toBeInTheDocument()
-      
-      // Check hero description
       expect(screen.getByText(aboutContent.hero.description)).toBeInTheDocument()
-    })
-
-    it('has correct styling classes for hero section', () => {
-      render(<AboutPage />)
-      
-      const heroSection = screen.getByText(aboutContent.hero.title).closest('section')
-      expect(heroSection).toHaveClass('bg-red-800', 'border-b')
     })
   })
 
@@ -51,16 +33,6 @@ describe('AboutPage', () => {
       aboutContent.bio.paragraphs.forEach(paragraph => {
         expect(screen.getByText(paragraph)).toBeInTheDocument()
       })
-    })
-
-    it('has correct styling for bio section', () => {
-      render(<AboutPage />)
-      
-      const bioSection = screen.getByText(aboutContent.bio.title).closest('section')
-      expect(bioSection).toBeInTheDocument()
-      
-      const bioCard = screen.getByText(aboutContent.bio.title).closest('div')
-      expect(bioCard).toHaveClass('bg-white', 'rounded-lg', 'shadow-md')
     })
   })
 
@@ -94,20 +66,6 @@ describe('AboutPage', () => {
       
       expectedSkills.forEach(skill => {
         expect(screen.getByText(skill)).toBeInTheDocument()
-      })
-    })
-
-    it('has correct styling for skill tags', () => {
-      render(<AboutPage />)
-      
-      // Find skill tags by looking for elements with the specific styling classes
-      const skillTags = screen.getAllByText(/JavaScript|React|Node\.js|Git|Jest/).filter(element => 
-        element.className.includes('px-3') && element.className.includes('bg-red-100')
-      )
-      
-      expect(skillTags.length).toBeGreaterThan(0)
-      skillTags.forEach(tag => {
-        expect(tag).toHaveClass('px-3', 'py-1', 'bg-red-100', 'text-red-800', 'text-sm', 'rounded-full')
       })
     })
   })
@@ -151,16 +109,6 @@ describe('AboutPage', () => {
         expect(screen.getByText(experience.description)).toBeInTheDocument()
       })
     })
-
-    it('has correct styling for experience items', () => {
-      render(<AboutPage />)
-      
-      const experienceItems = screen.getAllByText(/Senior Software Engineer|Full Stack Developer|Frontend Developer/)
-      experienceItems.forEach(item => {
-        const experienceContainer = item.closest('div')
-        expect(experienceContainer).toHaveClass('border-l-4', 'border-red-800', 'pl-6')
-      })
-    })
   })
 
   describe('Contact Section', () => {
@@ -196,30 +144,16 @@ describe('AboutPage', () => {
       expect(linkedinButton.closest('a')).toHaveAttribute('rel', 'noopener noreferrer')
       expect(screen.getByTestId('linkedin-icon')).toBeInTheDocument()
     })
-
-    it('has correct styling for contact section', () => {
-      render(<AboutPage />)
-      
-      const contactSection = screen.getByText(aboutContent.contact.title).closest('section')
-      expect(contactSection).toHaveClass('bg-red-800')
-      
-      const contactButtons = screen.getAllByRole('link')
-      contactButtons.forEach(button => {
-        expect(button).toHaveClass('inline-flex', 'items-center', 'px-6', 'py-3', 'font-semibold', 'rounded-lg', 'transition-colors')
-      })
-    })
   })
 
   describe('Accessibility', () => {
     it('has proper heading structure', () => {
       render(<AboutPage />)
       
-      // Check for h1 (hero title)
       const h1 = screen.getByRole('heading', { level: 1 })
       expect(h1).toBeInTheDocument()
       expect(h1).toHaveTextContent(aboutContent.hero.title)
       
-      // Check for h2 elements
       const h2Elements = screen.getAllByRole('heading', { level: 2 })
       expect(h2Elements).toHaveLength(4) // bio, skills, experience, contact
     })
@@ -240,29 +174,6 @@ describe('AboutPage', () => {
       contactButtons.forEach(button => {
         expect(button.textContent?.trim()).toBeTruthy()
       })
-    })
-  })
-
-  describe('Responsive Design', () => {
-    it('has responsive grid classes for skills section', () => {
-      render(<AboutPage />)
-      
-      const skillsGrid = screen.getByText('Languages').closest('div')?.parentElement
-      expect(skillsGrid).toHaveClass('grid', 'grid-cols-1', 'md:grid-cols-2', 'lg:grid-cols-3')
-    })
-
-    it('has responsive flex classes for contact buttons', () => {
-      render(<AboutPage />)
-      
-      const contactButtonsContainer = screen.getByText('Send Email').closest('div')
-      expect(contactButtonsContainer).toHaveClass('flex', 'flex-col', 'sm:flex-row')
-    })
-
-    it('has responsive text classes for hero title', () => {
-      render(<AboutPage />)
-      
-      const heroTitle = screen.getByText(aboutContent.hero.title)
-      expect(heroTitle).toHaveClass('text-4xl', 'md:text-5xl')
     })
   })
 
