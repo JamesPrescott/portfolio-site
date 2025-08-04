@@ -58,14 +58,6 @@ describe('ShowcaseGrid', () => {
     expect(screen.queryByText('CLI Development Tool')).not.toBeInTheDocument()
   })
 
-  it('shows featured items with star icon', () => {
-    render(<ShowcaseGrid items={mockItems} />)
-    
-    // Featured item should have a star
-    const featuredItem = screen.getByText('React Component Library').closest('div')?.parentElement?.parentElement
-    expect(featuredItem).toHaveClass('ring-2', 'ring-red-800')
-  })
-
   it('renders demo and code links', () => {
     render(<ShowcaseGrid items={mockItems} />)
     

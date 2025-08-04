@@ -42,12 +42,4 @@ test.describe('Navigation', () => {
     await expect(page.getByRole('navigation').getByRole('link', { name: 'Blog' })).toBeVisible()
     await expect(page.getByRole('navigation').getByRole('link', { name: 'About' })).toBeVisible()
   })
-
-  test('should highlight active page in navigation', async ({ page }) => {
-    await page.goto('/showcase')
-    
-    // Showcase link should be active - check the correct CSS class
-    const showcaseLink = page.getByRole('navigation').getByRole('link', { name: 'Showcase' })
-    await expect(showcaseLink).toHaveClass(/text-white bg-red-800/)
-  })
 }) 

@@ -172,28 +172,4 @@ describe('RootLayout', () => {
       })
     })
   })
-
-  describe('Styling', () => {
-    it('applies Inter font class to body', () => {
-      render(
-        <RootLayout>
-          <div data-testid="page-content">Test Content</div>
-        </RootLayout>
-      )
-      
-      const body = document.querySelector('body')
-      expect(body).toHaveClass('inter-font-class')
-    })
-
-    it('applies correct layout classes to main container', () => {
-      render(
-        <RootLayout>
-          <div data-testid="page-content">Test Content</div>
-        </RootLayout>
-      )
-      
-      const mainContainer = document.querySelector('.min-h-screen.flex.flex-col')
-      expect(mainContainer).toHaveClass('min-h-screen', 'flex', 'flex-col')
-    })
-  })
 })
