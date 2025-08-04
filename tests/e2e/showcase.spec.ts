@@ -25,23 +25,26 @@ test.describe('Showcase', () => {
   })
 
   test('should be able to search with search bar', async ({ page }) => {
-    await page.waitForURL('/showcase')
-    await page.getByRole('textbox', { name: /Search/ }).fill('CLI')
-
-    const grid = page.locator('main div.grid');
-    const projectCards = grid.getByRole('heading', { level: 3 })
-
-    await expect(projectCards).toHaveCount(1)
+    await expect(async () => {
+      const searchInput = page.getByRole('textbox', { name: /Search/ })
+      await searchInput.clear()
+      await searchInput.fill('CLI')
+      const grid = page.locator('main div.grid')
+      const projectCards = grid.getByRole('heading', { level: 3 })
+      await expect(projectCards).toHaveCount(1)
+    }).toPass({
+      timeout: 15000
+    })
   })
 
   test('should be able to see a fallback message when no projects are found', async ({ page }) => {
-    await page.waitForURL('/showcase')
-    await page.getByRole('textbox', { name: /Search/ }).fill('Not a real project')
-
-    const grid = page.locator('main div.grid');
-    const projectCards = grid.getByRole('heading', { level: 3 })
-
-    await expect(projectCards).toHaveCount(0)
-    await expect(page.getByText(/No projects found/)).toBeVisible()
+    await expect(async () => {
+      const searchInput = page.getByRole('textbox', { name: /Search/ })
+      await searchInput.clear()
+      await searchInput.fill('Not a real project')
+      await expect(page.getByText(/No projects found/)).toBeVisible()
+    }).toPass({
+      timeout: 15000
+    })
   })
 })

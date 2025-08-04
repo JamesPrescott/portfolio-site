@@ -32,6 +32,6 @@ jobs:
         uses: actions/download-artifact@v4
         with:
           name: nextjs-build
-          path: app
+          path: .
       - name: E2E Tests
         uses: ./.github/actions/e2e-tests

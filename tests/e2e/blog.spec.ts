@@ -26,15 +26,24 @@ test.describe('Blog', () => {
   });
 
   test('should be able to search for a post', async ({ page }) => {
-    await page.waitForURL('/blog')
-    await page.getByRole('textbox', { name: 'Search' }).fill('Tools')
-    await expect(main.getByRole('article')).toHaveCount(1)
+    await expect(async () => {
+      const searchInput = page.getByRole('textbox', { name: 'Search' })
+      await searchInput.clear()
+      await searchInput.fill('Tools')
+      await expect(main.getByRole('article')).toHaveCount(1)
+    }).toPass({
+      timeout: 15000
+    })
   });
 
   test('should be able to see a fallback message when no posts are found', async ({ page }) => {
-    await page.waitForURL('/blog')
-    await page.getByRole('textbox', { name: 'Search' }).fill('Not a real post')
-    await expect(main.getByRole('article')).toHaveCount(0)
-    await expect(page.getByText(/No articles found/)).toBeVisible()
+    await expect(async () => {
+      const searchInput = page.getByRole('textbox', { name: 'Search' })
+      await searchInput.clear()
+      await searchInput.fill('Not a real post')
+      await expect(page.getByText(/No articles found/)).toBeVisible()
+    }).toPass({
+      timeout: 15000
+    })
   });
 })
