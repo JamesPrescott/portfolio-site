@@ -21,4 +21,5 @@ runs:
       uses: actions/upload-artifact@v4
       with:
         name: nextjs-build
+        path: .
         retention-days: 30 
