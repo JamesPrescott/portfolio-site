@@ -19,7 +19,7 @@ runs:
 
     - name: Start the Next.js server
       shell: bash
-      run: npm run start &
+      run: npm run dev &
 
     - name: Run E2E tests
       shell: bash
